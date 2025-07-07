@@ -3,6 +3,7 @@ import { Customers } from './components/Customers.tsx';
 import { Header } from './components/Header.tsx';
 import { Hero } from './components/Hero.tsx';
 import { LearnSection } from './components/Learn.tsx';
+import { StayUpdatedSection } from './components/StayUpdated.tsx';
 
 function App() {
   return (
@@ -11,6 +12,7 @@ function App() {
       <Hero />
       <Customers />
       <LearnSection />
+      <StayUpdatedSection />
     </>
   )
 }
