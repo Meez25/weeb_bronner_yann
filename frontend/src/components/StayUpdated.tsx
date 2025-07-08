@@ -4,7 +4,7 @@ import shapes from '../assets/Shapes.svg';
 export const StayUpdatedSection = () => {
     return (
         <section className="bg-[#0F172A] px-5 font-roboto font-bold text-xl">
-            <div className="max-w-[1000px] flex flex-col lg:flex-row justify-center md:flex-col-reverse gap-28 mx-auto">
+            <div className="max-w-[1000px] flex flex-col-reverse justify-center lg:flex-col gap-28 mx-auto pb-10">
                 <div className="basis-1/3 self-center">
                     <img src={shapes} alt="Concept" />
                 </div>
