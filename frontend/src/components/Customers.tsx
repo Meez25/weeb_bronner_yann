@@ -6,7 +6,7 @@ import ArtVenueIcon from '../assets/ArtVenue.svg';
 
 export const Customers = () => {
     return (
-        <div className="bg-[#0F172A] py-20 flex flex-col gap-20 md:px-5">
+        <div className="bg-[#0F172A] py-20 flex flex-col gap-20 md:px-5 overflow-hidden">
             <h2 className="text-white font-roboto font-extrabold text-4xl md:text-7xl px-5 text-center">Ils nous font confiance</h2>
 
             {/* Scroll mobile */}
