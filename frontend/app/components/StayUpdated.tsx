@@ -14,9 +14,9 @@ export const StayUpdatedSection = () => {
                     <h4 className="text-white font-extrabold text-4xl md:text-7xl mb-8">Restez informé des dernières <span className="text-[#C084FC]">tendances</span></h4>
                     <p className="md:mx-auto max-w-[1000px] text-white md:text-lg mb-6">Chaque semaine, nous analysons les nouveautés du web : frameworks émergents, bonnes pratiques SEO, accessibilité, et bien plus encore. Ne manquez aucune actualité du digital !</p>
 
-                    <div className="inline-flex gap-2 mb-10">
-                        <p className="text-white">Lire les articles récents</p><RiArrowRightLine color="white" />
-                    </div>
+                    <a href="#" className="inline-flex gap-2 mb-10">
+                        <p className="text-white hover:underline">Lire les articles récents</p><RiArrowRightLine color="white" />
+                    </a>
                 </div>
             </div>
         </section >
