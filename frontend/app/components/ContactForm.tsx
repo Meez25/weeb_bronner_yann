@@ -8,6 +8,7 @@ export const ContactForm = () => {
         }
         alert("Message envoyé !")
     }
+
     return (
         <section className="bg-[#0F172A] px-2 py-10">
             <form
