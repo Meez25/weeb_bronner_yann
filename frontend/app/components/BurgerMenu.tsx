@@ -1,3 +1,4 @@
+import React from 'react';
 export const BurgerMenu = ({ isModalOpen, setModalOpen }: { isModalOpen: boolean, setModalOpen: (prev: boolean) => void }) => {
     if (!isModalOpen) return (
         <div className="bg-[#9333EA] h-11 w-12 rounded-lg flex flex-col justify-center gap-1 md:hidden self-center cursor-pointer"

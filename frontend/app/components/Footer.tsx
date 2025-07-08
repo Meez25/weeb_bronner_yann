@@ -1,3 +1,4 @@
+import React from 'react';
 import { RiInstagramFill, RiYoutubeFill, RiFacebookFill, RiTwitterXFill, RiLinkedinFill } from "@remixicon/react"
 
 export const Footer = () => {

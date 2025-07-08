@@ -1,3 +1,4 @@
+import React from 'react';
 import SmartFinderIcon from '../assets/SmartFinder.svg';
 import ZoomerrIcon from '../assets/Zoomerr.svg';
 import ShellsIcon from '../assets/SHELLS.svg';

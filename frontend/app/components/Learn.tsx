@@ -1,3 +1,4 @@
+import React from 'react';
 import { RiArrowRightLine } from "@remixicon/react"
 import image from '../assets/Desktop.png';
 
