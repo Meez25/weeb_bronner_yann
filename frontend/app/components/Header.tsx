@@ -12,10 +12,10 @@ export const Header = () => {
           <a href="/" className="text-white font-bold text-[32px] font-roboto self-center cursor-pointer">weeb</a>
           <a href="/contact" className="text-white hidden md:block self-center cursor-pointer">Contact</a>
         </div>
-        <div className='hidden md:flex md:justify-center'>
-          <button className='text-white bg-[#9333EA] md:h-12 md:w-[156px] md:rounded-lg md:self-center'>
+        <div className='hidden md:flex'>
+          <a href="/connexion" className='flex justify-center items-center text-white bg-[#9333EA] md:h-12 md:w-[156px] md:rounded-lg md:self-center'>
             Se connecter
-          </button>
+          </a>
         </div>
         <BurgerMenu isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
       </div>
@@ -23,9 +23,9 @@ export const Header = () => {
         <a href="/contact" className='cursor-pointer'>
           Contact
         </a>
-        <div>
+        <a href="/connexion" className='cursor-pointer'>
           Se connecter
-        </div>
+        </a>
       </div>}
     </header >
   )
