@@ -10,7 +10,7 @@ export const LoginForm = () => {
     }
 
     return (
-        <section className="bg-[#0F172A] px-2 py-10 flex flex-col">
+        <main className="bg-[#0F172A] px-2 py-10 flex flex-col">
             <h1 className="text-white text-center font-extrabold text-4xl">Se connecter</h1>
             <form
                 className="text-[#C084FC] p-5 flex flex-col gap-5 max-w-[1000px] mx-auto"
@@ -31,6 +31,6 @@ export const LoginForm = () => {
             </div>
 
             <p className="text-[#C4C4C4] text-center w-1/2 mx-auto font-medium">Vous n'avez pas de compte ? Vous pouvez en <a className="underline underline-offset-8 text-white" href="#">créer un</a></p>
-        </section>
+        </main>
     )
 }
