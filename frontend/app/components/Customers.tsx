@@ -10,7 +10,7 @@ export const Customers = () => {
         <div className="bg-[#0F172A] py-20 flex flex-col gap-20 md:px-5 overflow-hidden">
             <h2 className="text-white font-roboto font-extrabold text-4xl md:text-7xl px-5 text-center">Ils nous font confiance</h2>
 
-            {/* Scroll mobile */}
+            {/* Scroll mobile, le doublon permet de faire un scroll "infini" */}
             <div className="w-full inline-flex flex-nowrap lg:hidden">
                 <ul className="flex items-center justify-center lg:justify-start [&_li]:mx-8 [&_img]:max-w-none animate-scroll md:animate-none">
                     <li className='flex gap-2 text-white'>

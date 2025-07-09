@@ -11,7 +11,11 @@ export const StayUpdatedSection = () => {
     return (
         <section className="bg-[#0F172A] px-5 font-roboto font-bold text-xl">
             <div className="max-w-[1000px] flex flex-col-reverse justify-center lg:flex-row gap-28 mx-auto pb-10">
-                <div className="relative basis-1/3 self-center">
+                {/* Ces instrution permettent à l'image de tourner */}
+                <div className="relative basis-1/3 self-center mb-10">
+                    <img
+                        className='scale-65 z-10 relative' src={mainSquare} alt="Concept"
+                    />
                     <motion.img
                         initial={{ rotate: 0 }}
                         animate={{ rotate: 360 }}
@@ -31,11 +35,7 @@ export const StayUpdatedSection = () => {
                         initial={{ rotate: 0 }}
                         animate={{ rotate: -360 }}
                         transition={{ ease: "linear", repeat: Infinity, duration: 6 }}
-                        className='top-0' src={fourthsquare} alt="Concept" />
-                    <motion.img
-                        initial={{ scale: 0.7 }}
-                        className='absolute top-0' src={mainSquare} alt="Concept"
-                    />
+                        className='absolute top-0' src={fourthsquare} alt="Concept" />
                 </div>
                 <div className="basis-2/3">
                     <h3 className="uppercase text-white mb-4">Le web, un écosystème en constante évolution</h3>
@@ -50,3 +50,4 @@ export const StayUpdatedSection = () => {
         </section >
     )
 }
+

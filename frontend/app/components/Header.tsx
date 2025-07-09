@@ -7,6 +7,8 @@ export const Header = () => {
     const modalRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
+        // Cette fonction permet de détecter si un clic survient en dehors de la modal
+        // Afin de fermer la modal
         const checkIfClickedOutside = (e: any) => {
             if (modalRef.current && !modalRef.current.contains(e.target)) {
                 setModalOpen(false)
