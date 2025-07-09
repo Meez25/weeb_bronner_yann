@@ -3,7 +3,7 @@ import hero from '../assets/Desktop.png';
 
 export const Hero = () => {
     return (
-        <section className="mx-auto bg-[#0F172A] text-white font-roboto px-5 flex justify-center py-10 flex-col">
+        <main className="mx-auto bg-[#0F172A] text-white font-roboto px-5 flex justify-center py-10 flex-col">
             <h1 className="mx-auto max-w-[1000px] font-extrabold text-4xl md:text-7xl mb-10">Explorez le <span className="text-[#C084FC] font-light">Web</span> sous toutes ses <span className="underline decoration-[#C084FC] underline-offset-6">facettes</span></h1>
             <p className="mx-auto max-w-[1000px] font-normal mb-10 text-lg">Le monde du web évolue constamment, et nous sommes là pour vous guider à travers ses tendances, technologies et meilleures pratiques. Que vous soyez développeur, designer ou passionné du digital, notre blog vous offre du contenu de qualité pour rester à la pointe.
             </p>
@@ -16,6 +16,6 @@ export const Hero = () => {
                 </button>
             </div>
             <img className='lg:mx-auto max-w-[1000px]' src={hero} alt="Image conceptuelle d'une interface" />
-        </section>
+        </main>
     )
 }
