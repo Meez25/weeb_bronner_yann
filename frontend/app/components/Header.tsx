@@ -19,7 +19,7 @@ export const Header = () => {
     }, [isModalOpen])
 
     return (
-        <header className="sticky top-0 bg-[#0F172A] px-5 py-[15px] md:h-[144px] md:p-6">
+        <header className="sticky md:static top-0 bg-[#0F172A] px-5 py-[15px] md:h-[144px] md:p-6">
             <nav className="flex justify-between md:bg-white/5 md:bg-opacity-5 max-w-[1000px] md:rounded-[20px] md:mx-auto md:px-6 md:h-24" >
                 <div className="flex justify-center gap-9">
                     <a href="/" className="text-white font-bold text-[32px] font-roboto self-center cursor-pointer hover:text-purple-500">weeb</a>

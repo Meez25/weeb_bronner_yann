@@ -13,6 +13,7 @@
     "@react-router/serve": "^7.5.3",
     "@remixicon/react": "^4.6.0",
     "isbot": "^5",
+    "motion": "^12.23.0",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
     "react-router": "^7.5.3"
