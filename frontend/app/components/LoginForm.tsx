@@ -21,12 +21,14 @@ export const LoginForm = () => {
                     <input className="border-b text-center py-2 font-medium text-2xl" type="password" placeholder="Mot de passe" name="password" />
                 </div>
                 <button
-                    className="bg-[#9333EA] rounded-lg h-12 w-[156px] self-center text-white cursor-pointer" type="submit"
+                    className="bg-[#9333EA] rounded-lg h-12 w-[156px] self-center text-white cursor-pointer hover:bg-purple-500" type="submit"
                 >Se connecter
                 </button>
             </form>
 
-            <a className="text-center text-white mb-5" href="#">Mot de passe oublié ?</a>
+            <div className="self-center mb-5">
+                <a className="text-center text-white hover:underline" href="#">Mot de passe oublié ?</a>
+            </div>
 
             <p className="text-[#C4C4C4] text-center w-1/2 mx-auto font-medium">Vous n'avez pas de compte ? Vous pouvez en <a className="underline underline-offset-8 text-white" href="#">créer un</a></p>
         </section>

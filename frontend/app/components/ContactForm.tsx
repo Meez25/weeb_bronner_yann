@@ -37,7 +37,7 @@ export const ContactForm = () => {
                     />
                 </div>
                 <button
-                    className="bg-[#9333EA] rounded-lg h-9 text-white cursor-pointer" type="submit"
+                    className="bg-[#9333EA] rounded-lg h-9 text-white cursor-pointer hover:bg-purple-500" type="submit"
                 >Contact
                 </button>
             </form>
