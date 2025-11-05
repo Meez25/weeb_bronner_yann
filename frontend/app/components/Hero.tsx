@@ -1,5 +1,5 @@
 import React from 'react';
-import hero from '../assets/Desktop.png';
+import hero from '../assets/Desktop.webp';
 import { Link } from 'react-router';
 
 export const Hero = () => {
