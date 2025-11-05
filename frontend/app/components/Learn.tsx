@@ -1,6 +1,6 @@
 import React from 'react';
 import { RiArrowRightLine } from "@remixicon/react"
-import image from '../assets/Desktop.png';
+import image from '../assets/Desktop.webp';
 import { Link } from 'react-router';
 
 export const LearnSection = () => {
