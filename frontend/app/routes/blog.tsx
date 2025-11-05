@@ -1,31 +1,71 @@
-import React, { useEffect, useState } from 'react';
-import type { Route } from "./+types/home";
-import { Blog } from '~/blog/blog';
-import { API_URL } from '~/helper';
+import { useLoaderData, useSearchParams } from "react-router";
+import { Blog } from "~/blog/blog";
+import { BlogHero } from "~/components/BlogHero";
+import type { Route } from "../+types/root";
+import { API_URL } from "~/helper";
 
-export function meta({ }: Route.MetaArgs) {
-  return [
-    { title: "Weeb" },
-    { name: "description", content: "Bienvenue sur notre blog !" },
-  ];
+export async function loader({ request }: Route.LoaderArgs) {
+  const url = new URL(request.url);
+  const params = url.searchParams.toString();
+  const res = await fetch(`${API_URL}posts/?${params}`);
+  if (!res.ok) throw new Response("Erreur lors du chargement", { status: res.status });
+
+  return res.json();
 }
 
-export default function ContactPage() {
-  const [posts, setPosts] = useState([])
+export default function BlogPage() {
+  const data = useLoaderData<typeof loader>();
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  useEffect(() => {
-    const getPosts = async () => {
-      try {
-        const response = await fetch(API_URL + "posts/");
-        const articles = await response.json();
-        setPosts(articles.results);
-      } catch (err) {
-        console.error("Erreur lors de la récupération des posts :", err);
-      }
-    };
+  const { results: posts, next, previous } = data;
 
-    getPosts();
+  const author = searchParams.get("author") || "";
+  const q = searchParams.get("q") || "";
+  const ordering = searchParams.get("ordering") || "-created_at";
 
-  }, [])
-  return <Blog posts={posts} />;
+  const updateFilter = (key: string, value: string) => {
+    if (value) searchParams.set(key, value);
+    else searchParams.delete(key);
+    searchParams.set("page", "1");
+    setSearchParams(searchParams);
+  };
+
+  return (
+    <div className="bg-[#0F172A] min-h-screen text-white">
+      <BlogHero />
+
+      <div className="flex gap-4 justify-center py-4 flex-wrap">
+        <input
+          type="text"
+          placeholder="Recherche..."
+          value={q}
+          onChange={(e) => updateFilter("q", e.target.value)}
+          className="px-3 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400"
+        />
+
+        <input
+          type="text"
+          placeholder="Auteur"
+          value={author}
+          onChange={(e) => updateFilter("author", e.target.value)}
+          className="px-3 py-2 rounded-lg bg-gray-800 text-white placeholder-gray-400"
+        />
+
+        <select
+          value={ordering}
+          onChange={(e) => updateFilter("ordering", e.target.value)}
+          className="px-3 py-2 rounded-lg bg-gray-800 text-white"
+        >
+          <option value="-created_at">Plus récent → Plus ancien</option>
+          <option value="created_at">Plus ancien → Plus récent</option>
+        </select>
+      </div>
+
+      <Blog
+        posts={posts}
+        hasNext={!!next}
+        hasPrevious={!!previous}
+      />
+    </div>
+  );
 }
