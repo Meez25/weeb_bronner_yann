@@ -2,10 +2,12 @@ import React, { useEffect, useRef } from 'react';
 import { BurgerMenu } from './BurgerMenu';
 import { useState } from 'react';
 import { Link } from 'react-router';
+import { useAuth } from '~/contexts/AuthContext';
 
 export const Header = () => {
   const [isModalOpen, setModalOpen] = useState(false);
   const modalRef = useRef<HTMLDivElement>(null);
+  const { isAuthenticated, logout } = useAuth()
 
   useEffect(() => {
     // Cette fonction permet de détecter si un clic survient en dehors de la modal
@@ -28,9 +30,11 @@ export const Header = () => {
           <Link to="/" className="text-white font-bold text-[32px] font-roboto self-center cursor-pointer hover:text-purple-500">weeb</Link>
           <Link to="/blog" className="text-white hidden md:block self-center cursor-pointer hover:text-purple-500">Blog</Link>
           <Link to="/contact" className="text-white hidden md:block self-center cursor-pointer hover:text-purple-500">Contact</Link>
+          {isAuthenticated && <Link to="/nouvel_article" className="text-white hidden md:block self-center cursor-pointer hover:text-purple-500">Ecrire un article</Link>}
         </div>
         <div className='hidden md:flex'>
-          <Link to="/connexion" className='flex justify-center items-center text-white bg-[#9333EA] md:h-12 md:w-[156px] md:rounded-lg md:self-center hover:bg-purple-500'>Se connecter</Link>
+          {!isAuthenticated && <Link to="/connexion" className='flex justify-center items-center text-white bg-[#9333EA] md:h-12 md:w-[156px] md:rounded-lg md:self-center hover:bg-purple-500'>Se connecter</Link>}
+          {isAuthenticated && <button onClick={() => logout()} className='flex justify-center items-center cursor-pointer text-white bg-[#9333EA] md:h-12 md:w-[156px] md:rounded-lg md:self-center hover:bg-purple-500'>Se déconnecter</button>}
         </div>
         <BurgerMenu isModalOpen={isModalOpen} setModalOpen={setModalOpen} />
       </nav>
