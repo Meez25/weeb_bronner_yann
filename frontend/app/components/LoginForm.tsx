@@ -1,19 +1,37 @@
+import { useState } from "react";
 import { Link } from "react-router";
+import { useAuth } from "~/contexts/AuthContext";
 
 export const LoginForm = () => {
-  const onSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
-    event.preventDefault()
-    const formData = new FormData(event.currentTarget);
+  const [error, setError] = useState<string | null>(null);
+  const { login } = useAuth()
+
+  const onSubmit: React.FormEventHandler<HTMLFormElement> = async (event) => {
     event.preventDefault();
-    for (let [key, value] of formData.entries()) {
-      console.log(key, value);
+    setError(null);
+
+    const formData = new FormData(event.currentTarget);
+    const email = formData.get("email")?.toString();
+    const password = formData.get("password")?.toString();
+
+    if (email && password) {
+      try {
+        await login(email, password);
+        window.location.href = "/";
+      } catch (err) {
+        setError("Email ou mot de passe incorrect");
+      }
     }
-    alert("Formulaire envoyé !")
-  }
+  };
 
   return (
     <main className="bg-[#0F172A] px-2 py-10 flex flex-col">
       <h1 className="text-white text-center font-extrabold text-4xl">Se connecter</h1>
+
+      {error && (
+        <p className="text-red-500 text-center mt-4">{error}</p>
+      )}
+
       <form
         className="text-[#C084FC] p-5 flex flex-col gap-5 max-w-[1000px] mx-auto"
         id="ContactForm"
