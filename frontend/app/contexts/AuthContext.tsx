@@ -5,8 +5,8 @@ import {
   useEffect,
 } from "react";
 import type { ReactNode } from "react";
-import { useNavigate } from "react-router";
-import { login_user } from "~/api/users";
+import { redirect } from "react-router";
+import { login_user, me } from "~/api/users";
 
 interface User {
   email: string;
@@ -25,28 +25,31 @@ const AuthContext = createContext<AuthContextType | null>(null);
 export function AuthProvider({ children }: { children: ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isLoading, setIsLoading] = useState(true);
-  const navigate = useNavigate();
 
   useEffect(() => {
+    const getIdentity = async () => {
+      const identity = await me() as User
+      setUser({ email: identity.email });
+      setIsLoading(false);
+    }
+
     const token = localStorage.getItem("access_token");
     if (token) {
-      // TODO : Who am I ? Call the API
-      setUser({ email: "" });
+      getIdentity()
     }
-    setIsLoading(false);
   }, []);
 
   const login = async (email: string, password: string) => {
     await login_user(email, password);
     setUser({ email });
-    navigate("/");
+    redirect("/");
   };
 
   const logout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("refresh_token");
     setUser(null);
-    navigate("/connexion");
+    redirect("/connexion");
   };
 
   return (

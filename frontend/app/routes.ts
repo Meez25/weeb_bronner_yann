@@ -5,6 +5,7 @@ export default [
   route("contact", "./routes/contact.tsx"),
   route("connexion", "./routes/login.tsx"),
   route("enregistrement", "./routes/register.tsx"),
+  route("nouvel_article", "./routes/addArticle.tsx"),
   route("blog", "./routes/blog.tsx"),
   route("blog/:slug", "./routes/article.tsx")
 ] satisfies RouteConfig;
