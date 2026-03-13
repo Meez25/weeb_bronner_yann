@@ -4,7 +4,7 @@ import { BlogHero } from "~/components/BlogHero";
 import type { Route } from "../+types/root";
 import { API_URL } from "~/helper";
 
-export async function loader({ request }: Route.LoaderArgs) {
+export async function clientLoader({ request }: Route.ClientLoaderArgs) {
   const url = new URL(request.url);
   const params = url.searchParams.toString();
   const res = await fetch(`${API_URL}posts/?${params}`);
@@ -14,7 +14,7 @@ export async function loader({ request }: Route.LoaderArgs) {
 }
 
 export default function BlogPage() {
-  const data = useLoaderData<typeof loader>();
+  const data = useLoaderData<typeof clientLoader>();
   const [searchParams, setSearchParams] = useSearchParams();
 
   const { results: posts, next, previous } = data;
