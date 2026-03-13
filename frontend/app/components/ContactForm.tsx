@@ -31,7 +31,6 @@ export const ContactForm = () => {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
-      console.log("Payload envoyé :", payload);
 
       if (!res.ok) throw new Error("Erreur lors de l'envoi du message.");
 
